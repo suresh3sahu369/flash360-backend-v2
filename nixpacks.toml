@@ -2,7 +2,7 @@
     NIXPACKS_PHP_EXTENSIONS = "intl, zip, ctype, curl, dom, fileinfo, filter, hash, mbstring, openssl, pcre, pdo, session, tokenizer, xml"
 
 [phases.setup]
-    nixPkgs = ["php82", "php82Extensions.intl", "php82Extensions.zip", "nodejs-22_x"]
+    nixPkgs = ["php82", "php82Extensions.intl", "php82Extensions.zip", "nodejs_22"]
 
 [phases.install]
     cmds = ["composer install --optimize-autoloader --no-scripts --no-interaction --ignore-platform-req=ext-intl --ignore-platform-req=ext-zip"]
