@@ -9,10 +9,8 @@ use App\Http\Controllers\Api\NewsletterController;
 use App\Http\Controllers\Api\PublicNewsController;
 use App\Http\Controllers\Api\PublicCategoryController;
 
-// Alias to avoid conflict
 use App\Http\Controllers\Api\NewsController as UserNewsController;
 
-// Admin / Creator Controllers
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
@@ -63,7 +61,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/news/{id}/comment', [InteractionController::class, 'storeComment']);
     Route::post('/author/{id}/subscribe', [InteractionController::class, 'toggleSubscribe']);
 
-    // User post news
     Route::post('/news/store', [UserNewsController::class, 'store']);
 
     Route::put('/profile', [ProfileController::class, 'update']);
@@ -71,6 +68,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // ==========================
     // CREATOR
     // ==========================
+
     Route::middleware('creator')->group(function () {
 
         Route::get('/creator/news', [NewsController::class, 'myNews']);
@@ -83,6 +81,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // ==========================
     // ADMIN
     // ==========================
+
     Route::middleware('admin')->group(function () {
 
         Route::apiResource('users', UserController::class);
